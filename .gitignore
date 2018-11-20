@@ -1,0 +1,13 @@
+home-assistant/.HA_VERSION
+home-assistant/.storage
+home-assistant/.uuid
+home-assistant/*.bak
+home-assistant/*.txt
+home-assistant/*.xml
+home-assistant/*.conf
+home-assistant/home-assistant.log
+home-assistant/home-assistant_v2.db*
+home-assistant/pyozw.sqlite
+home-assistant/customize.yaml
+home-assistant/known_devices.yaml
+home-assistant/secrets.yaml
