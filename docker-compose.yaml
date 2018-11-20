@@ -1,0 +1,48 @@
+version: '3'
+services:
+  home-assistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant
+    volumes:
+      - $PWD/home-assistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    depends_on:
+      - mqtt
+    restart: always
+    network_mode: host
+
+  mqtt:
+    container_name: eclipse-mosquitto
+    image: eclipse-mosquitto
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "9001:9001"
+    volumes:
+      - $PWD/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - $PWD/mosquitto/data:/mosquitto/data
+      - $PWD/mosquitto/log:/mosquitto/log:rw
+      - $PWD/mosquitto/certs:/mosquitto/certs
+
+  influxdb:
+    container_name: influxdb
+    image: influxdb
+    ports: 
+      - "8086:8086"
+    volumes:
+      - $PWD/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
+      - $PWD/influxdb/influxdb:/var/lib/influxdb
+  
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    depends_on:
+      - influxdb
+    ports:
+      - "3000:3000"
+    volumes:
+      - $PWD/grafana/grafana:/var/lib/grafana
+      
+
