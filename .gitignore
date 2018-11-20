@@ -11,3 +11,6 @@ home-assistant/pyozw.sqlite
 home-assistant/customize.yaml
 home-assistant/known_devices.yaml
 home-assistant/secrets.yaml
+
+mosquitto/certs
+mosquitto/log
