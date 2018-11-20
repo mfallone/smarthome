@@ -1,0 +1,163 @@
+- id: '1000000000001'
+  alias: Night Turn Off Lava Lamp
+  trigger:
+  - at: 02:00
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - switch.basement_desk_smart_switch
+    service: switch.turn_off
+- id: '1000000000002'
+  alias: Night Turn Off All
+  trigger:
+  - at: 01:15
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - scene.turn_off_all
+    service: scene.turn_on
+- id: '1539485877650'
+  alias: Ecobee Turn On Away Mode
+  trigger:
+  - at: 09:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: device_tracker.mike_phone
+    state: not_home
+  action:
+  - alias: ''
+    data:
+      away_mode: 'on'
+      entity_id:
+      - climate.my_ecobee
+    service: climate.set_away_mode
+- id: '1539485877651'
+  alias: Ecobee Turn Off Away Mode
+  trigger:
+  - at: '15:45'
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      away_mode: 'off'
+      entity_id:
+      - climate.my_ecobee
+    service: climate.set_away_mode
+- id: '1539485877652'
+  alias: Turn Off All Empty House
+  trigger:
+  - event_data:
+      from: home
+      to: not_home
+    event_type: device_tracker.mike_phone
+    platform: event
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - scene.turn_off_all
+    service: scene.turn_on
+- id: '1539485877653'
+  alias: Arrive Home
+  trigger:
+  - entity_id: device_tracker.mike_phone
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - condition: state
+    entity_id: light.first_floor_ceiling_lights
+    state: 'off'
+  action:
+  - alias: ''
+    data:
+      brightness: 190
+      entity_id:
+      - light.first_floor_ceiling_lights
+    service: light.turn_on
+- id: '1539485877654'
+  alias: Morning Turn On Main Floor
+  trigger:
+  - at: 06:25
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - light.first_floor_ceiling_lights
+      - light.first_floor_couch_lights
+      - light.kitchen_overhead_light_1
+      - light.kitchen_overhead_light_2
+      - light.kitchen_overhead_light_3
+      - light.kitchen_overhead_light_4
+    service: light.turn_on
+- id: '1539485877662'
+  alias: Day Turn On Second Floor Plant Lights
+  trigger:
+  - at: 06:45
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - switch.second_floor_front_room_plant_smart_switch
+    service: switch.turn_on
+- id: '1539485877663'
+  alias: Night Turn Off Second Floor Plant Lights
+  trigger:
+  - at: '20:00'
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - switch.second_floor_front_room_plant_smart_switch
+    service: switch.turn_off
+- id: '1539485877762'
+  alias: Day Turn On Basement Plant Lights
+  trigger:
+  - at: 06:45
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - switch.basement_plants_switch
+    service: switch.turn_on
+- id: '1539485877763'
+  alias: Night Turn Off Basement Plant Lights
+  trigger:
+  - at: '20:00'
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - switch.basement_plants_switch
+    service: switch.turn_off
+- id: '1542598078061'
+  alias: Christmas Lights Off
+  trigger:
+  - at: '23:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id:
+      - switch.first_floor_christmas_tree_lights_switch
+      - switch.first_floor_media_smart_switch
+    service: switch.turn_off

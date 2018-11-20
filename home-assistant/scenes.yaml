@@ -1,0 +1,12 @@
+- name: Turn Off All
+  entities:
+    switch.basement_desk_smart_switch: off
+    switch.basement_desk_smart_strip_switch_3_work_light: off
+    light.basement_display_lights: off
+    light.first_floor_ceiling_lights: off
+    light.first_floor_couch_lights: off
+    light.second_floor_back_room_lights: off
+    light.second_floor_front_room_lights: off
+    light.basement_laundry_light: off
+    light.basement_doorway_light: off
+    light.basement_cantina_light: off

@@ -1,0 +1,36 @@
+- platform: fastdotcom
+  name: fastdotcom
+
+- platform: teksavvy
+  api_key: !secret teksavvy_api_key
+  total_bandwidth: 0
+  monitored_variables:
+  - usage
+  - usage_gb
+  - limit
+  - onpeak_download
+  - onpeak_upload
+  - onpeak_total
+  - offpeak_download
+  - offpeak_upload
+  - offpeak_total
+  - onpeak_remaining
+
+- platform: plex
+  host: !secret plex_host
+  port: !secret plex_port
+  name: FamFlix
+  username: !secret plex_famflix_username
+  password: !secret plex_famflix_password
+
+- platform: apcupsd
+  resources:
+      - bcharge
+      - linev
+      - loadpct
+      - nominv
+      - nompower
+      - numxfers
+      - status
+      - timeleft
+      - tonbatt

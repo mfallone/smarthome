@@ -1,0 +1,21 @@
+- platform: nmap_tracker
+  home_interval: 15
+  consider_home: 0:10:00
+  hosts:
+    - !secret mike_phone_ip
+    - !secret krista_phone_ip
+- platform: ping
+  hosts:
+    zuul: !secret host_zuul_ip
+    bouncer: !secret host_bouncer_ip
+    ark: !secret host_ark_ip
+    sol: !secret host_sol_ip
+    cerberus: !secret host_cerberus_ip
+    beholder: !secret host_beholder_ip
+    brain: !secret host_brain_ip
+
+- platform: owntracks
+  consider_home: 0:10:00
+  mqtt_topic: !secret mqtt_topic
+  waypoints_whitelist:
+    - mike

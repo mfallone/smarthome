@@ -1,0 +1,24 @@
+family_devices:
+  name: Family
+  view: no
+  entities:
+    - device_tracker.mike_phone
+    - device_tracker.kristapixel2mysammichcom
+
+basement_devices:
+  name: Basement Devices
+  view: no
+  entities:
+    - device_tracker.brain
+    - device_tracker.sol
+    - device_tracker.beholder
+    - device_tracker.zuul
+    - device_tracker.ark
+    - device_tracker.cerberus
+
+mainfloor_lights:
+  name: Mainfloor Lights
+  view: no
+  entities:
+    - light.first_floor_ceiling_lights
+    - light.first_floor_couch_lights

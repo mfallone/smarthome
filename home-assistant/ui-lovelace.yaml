@@ -1,0 +1,182 @@
+title: Casa
+views:
+  - title: Main
+    id: main
+    icon: mdi:home-assistant
+    theme: dark-mode
+    cards:
+      - id: main_overview
+        type: glance
+        entities:
+          - sun.sun
+          - device_tracker.mike_phone
+          - device_tracker.kristapixel2mysammichcom
+          - sensor.fastcom_download
+          - climate.my_ecobee
+          - switch.doorbell_switch
+
+      - id: main_weather_owm
+        type: weather-forecast
+        entity: weather.openweathermap
+
+  - title: Automations
+    id: automations
+    icon: mdi:robot
+    cards:
+      - type: entities
+        title: Automations
+        show_header_toggle: true
+        entities:
+          - entity: group.all_automations
+
+  - title: Basement
+    id: basement
+    cards:
+      - id: basement_switches
+        type: entities
+        title: Switches
+        show_header_toggle: true
+        entities:
+          - entity: switch.basement_desk_smart_switch
+          - entity: switch.basement_desk_smart_strip_switch_3_work_light
+          - entity: light.basement_display_lights
+          - entity: switch.basement_plants_switch
+
+      - id: basement_multisensor
+        type: entities
+        title: Multisensor
+        show_header_toggle: true
+        entities:
+          - entity: sensor.basement_multisensor_alarm_level
+          - entity: sensor.basement_multisensor_alarm_type
+          - entity: sensor.basement_multisensor_luminance
+          - entity: sensor.basement_multisensor_motion
+          - entity: sensor.basement_multisensor_relative_humidity
+          - entity: sensor.basement_multisensor_sourcenodeid
+          - entity: sensor.basement_multisensor_temperature
+          - entity: sensor.basement_multisensor_ultraviolet
+
+      - id: basement_plants_multisensor
+        type: entities
+        title: Plants Multisensor
+        show_header_toggle: true
+        entities:
+          - entity: sensor.basement_plants_multisensor_alarm_level
+          - entity: sensor.basement_plants_multisensor_alarm_type
+          - entity: sensor.basement_plants_multisensor_luminance
+          - entity: sensor.basement_plants_multisensor_motion
+          - entity: sensor.basement_plants_multisensor_relative_humidity
+          - entity: sensor.basement_plants_multisensor_sourcenodeid
+          - entity: sensor.basement_plants_multisensor_temperature
+          - entity: sensor.basement_plants_multisensor_ultraviolet
+
+      - id: basement_unfinished_lights
+        type: entities
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - entity: light.basement_laundry_light
+          - entity: light.basement_doorway_light
+          - entity: light.basement_cantina_light
+    
+  - title: Main Floor
+    id: main_floor
+    cards:
+      - id: first_floor_lights
+        type: entities
+        title: First Floor Lights
+        show_header_toggle: true
+        entities:
+          - light.first_floor_couch_lights
+          - light.first_floor_ceiling_lights
+
+      - id: first_floor_kitchen_lights
+        type: entities
+        title: Kitchen Lights
+        show_header_toggle: true
+        entities:
+          - light.kitchen_overhead_light_1
+          - light.kitchen_overhead_light_2
+          - light.kitchen_overhead_light_3
+          - light.kitchen_overhead_light_4
+
+  - title: Second Floor
+    id: second_floor
+    cards:
+      - id: second_floor_lights
+        type: glance
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - light.second_floor_front_room_lights
+          - light.second_floor_back_room_lights
+
+      - id: second_floor_plants_multisensor
+        type: entities
+        title: Plant Multisensor
+        show_header_toggle: true
+        entities:
+          - entity: sensor.second_floor_front_room_plant_multisensor_alarm_level
+          - entity: sensor.second_floor_front_room_plant_multisensor_alarm_type
+          - entity: sensor.second_floor_front_room_plant_multisensor_luminance
+          - entity: sensor.second_floor_front_room_plant_multisensor_motion
+          - entity: sensor.second_floor_front_room_plant_multisensor_relative_humidity
+          - entity: sensor.second_floor_front_room_plant_multisensor_sourcenodeid
+          - entity: sensor.second_floor_front_room_plant_multisensor_temperature
+          - entity: sensor.second_floor_front_room_plant_multisensor_ultraviolet
+    
+  - title: Infrastructure
+    id: infrastructure
+    cards:
+      - id: tracked_hosts
+        type: glance
+        title: Hosts
+        entities:
+          - device_tracker.zuul
+          - device_tracker.bouncer
+          - device_tracker.ark
+          - device_tracker.sol
+          - device_tracker.cerberus
+          - device_tracker.beholder
+          - device_tracker.brain
+
+      - id: internet_monitor
+        type: entities
+        title: Internet
+        entities:
+          - entity: sensor.fastcom_download
+          - entity: sensor.teksavvy_usage
+          - entity: sensor.teksavvy_remaining
+          - entity: sensor.teksavvy_usage_ratio
+          - entity: sensor.teksavvy_data_limit
+          - entity: sensor.teksavvy_off_peak_download
+          - entity: sensor.teksavvy_off_peak_upload
+          - entity: sensor.teksavvy_off_peak_total
+          - entity: sensor.teksavvy_on_peak_download
+          - entity: sensor.teksavvy_on_peak_upload
+          - entity: sensor.teksavvy_on_peak_total
+
+
+      - id: ups_card
+        type: entities
+        title: UPS
+        show_header_toggle: true
+        entities:
+          - entity: sensor.ups_battery
+          - entity: sensor.ups_input_voltage
+          - entity: sensor.ups_load
+          - entity: sensor.ups_nominal_input_voltage
+          - entity: sensor.ups_nominal_output_power
+          - entity: sensor.ups_status
+          - entity: sensor.ups_time_left
+          - entity: sensor.ups_time_on_battery
+          - entity: sensor.ups_transfer_count
+
+      - id: grouped_cards
+        type: entities
+        title: All Devices
+        show_header_toggle: true
+        entities:
+          - entity: group.all_devices
+          - entity: group.all_lights
+          - entity: group.all_switches
