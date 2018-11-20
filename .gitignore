@@ -1,3 +1,5 @@
+*.bak
+
 home-assistant/.HA_VERSION
 home-assistant/.storage
 home-assistant/.uuid
