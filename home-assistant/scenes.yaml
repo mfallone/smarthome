@@ -10,3 +10,5 @@
     light.basement_laundry_light: off
     light.basement_doorway_light: off
     light.basement_cantina_light: off
+    switch.first_floor_christmas_tree_lights_switch: off
+    switch.first_floor_media_smart_switch: off

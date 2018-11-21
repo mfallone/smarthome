@@ -100,6 +100,8 @@
       - light.kitchen_overhead_light_2
       - light.kitchen_overhead_light_3
       - light.kitchen_overhead_light_4
+      - switch.first_floor_christmas_tree_lights_switch
+      - switch.first_floor_media_smart_switch
     service: light.turn_on
 - id: '1539485877662'
   alias: Day Turn On Second Floor Plant Lights
