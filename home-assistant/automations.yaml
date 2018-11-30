@@ -112,9 +112,9 @@
       - scene.turn_off_all
     service: scene.turn_on
 - id: '1539485877653'
-  alias: Arrive Home
+  alias: Arrive Home Turn on Lights
   trigger:
-  - entity_id: device_tracker.mike_phone
+  - entity_id: group.family_devices
     from: not_home
     platform: state
     to: home
@@ -132,7 +132,7 @@
 - id: '1539485877654'
   alias: Morning Turn On Main Floor
   trigger:
-  - at: 06:25
+  - at: 06:20
     platform: time
   condition: []
   action:
@@ -145,8 +145,6 @@
       - light.kitchen_overhead_light_2
       - light.kitchen_overhead_light_3
       - light.kitchen_overhead_light_4
-      - switch.first_floor_christmas_tree_lights_switch
-      - switch.first_floor_media_smart_switch
     service: light.turn_on
 - id: '1539485877662'
   alias: Day Turn On Second Floor Plant Lights
@@ -159,6 +157,7 @@
     data:
       entity_id:
       - switch.second_floor_front_room_plant_smart_switch
+      - switch.basement_plants_switch
     service: switch.turn_on
 - id: '1539485877663'
   alias: Night Turn Off Second Floor Plant Lights
@@ -171,40 +170,5 @@
     data:
       entity_id:
       - switch.second_floor_front_room_plant_smart_switch
-    service: switch.turn_off
-- id: '1539485877762'
-  alias: Day Turn On Basement Plant Lights
-  trigger:
-  - at: 06:45
-    platform: time
-  condition: []
-  action:
-  - alias: ''
-    data:
-      entity_id:
       - switch.basement_plants_switch
-    service: switch.turn_on
-- id: '1539485877763'
-  alias: Night Turn Off Basement Plant Lights
-  trigger:
-  - at: '20:00'
-    platform: time
-  condition: []
-  action:
-  - alias: ''
-    data:
-      entity_id:
-      - switch.basement_plants_switch
-    service: switch.turn_off
-- id: '1542598078061'
-  alias: Christmas Lights Off
-  trigger:
-  - at: '23:00'
-    platform: time
-  condition: []
-  action:
-  - data:
-      entity_id:
-      - switch.first_floor_christmas_tree_lights_switch
-      - switch.first_floor_media_smart_switch
     service: switch.turn_off
