@@ -80,18 +80,22 @@
       - climate.my_ecobee
     service: climate.set_hold_mode
 - id: '1539485877651'
-  alias: Ecobee Turn Off Away Mode
+  alias: Ecobee Arrive Home
   trigger:
-  - at: '15:45'
-    platform: time
+    - platform: time
+      at: '15:45'
+    - platform: state
+      entity_id: group.family_devices
+      from: not_home
+      to: home
   condition: []
   action:
   - alias: ''
     data:
-      away_mode: 'off'
+      hold_mode: 'home'
       entity_id:
       - climate.my_ecobee
-    service: climate.set_away_mode
+    service: climate.set_hold_mode
 - id: '1539485877652'
   alias: Turn Off All Empty House
   trigger:
