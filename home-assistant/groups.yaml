@@ -16,9 +16,22 @@ basement_devices:
     - device_tracker.ark
     - device_tracker.cerberus
 
-mainfloor_lights:
-  name: Mainfloor Lights
+first_floor_lights:
+  name: First Floor Lights
   view: no
   entities:
     - light.first_floor_ceiling_lights
     - light.first_floor_couch_lights
+
+basement_lights:
+  name: Basement Lights
+  view: no
+  entities:
+    - light.basement_cantina_light
+
+christmas_lights:
+  name: Christmas Lights
+  view: no
+  entities:
+    - switch.first_floor_christmas_tree_lights_switch
+    - switch.first_floor_media_smart_switch
