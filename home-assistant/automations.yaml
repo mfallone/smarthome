@@ -102,7 +102,7 @@
   - event_data:
       from: home
       to: not_home
-    event_type: device_tracker.mike_phone
+    event_type: group.family_devices
     platform: event
   condition: []
   action:
