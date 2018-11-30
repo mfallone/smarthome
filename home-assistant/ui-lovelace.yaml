@@ -6,6 +6,7 @@ views:
     theme: dark-mode
     cards:
       - id: main_overview
+        title: Overview
         type: glance
         entities:
           - sun.sun
@@ -19,6 +20,30 @@ views:
         type: weather-forecast
         entity: weather.openweathermap
 
+      - id: main_whats_on
+        type: entity-filter
+        card: 
+          type: glance
+          title: What is on?
+        entities:
+          - entity: group.first_floor_lights
+            name: First Floor Lights
+            tap_action: toggle
+          - entity: group.christmas_lights
+            name: Christmas Lights
+            tap_action: toggle
+          - entity: light.basement_cantina_light
+            name: Cantina Light
+            tap_action: toggle
+        state_filter:
+          - "on"
+
+      - id: main_map
+        type: map
+        entities:
+          - device_tracker.mike_phone
+          - device_tracker.kristapixel2mysammichcom
+
   - title: Automations
     id: automations
     icon: mdi:robot
@@ -28,6 +53,16 @@ views:
         show_header_toggle: true
         entities:
           - entity: group.all_automations
+
+#   - title: Cameras
+#     id: camera_view
+#     icon: mdi:cctv
+#     cards:
+#       - type: picture-entity
+#         title:  
+#         show_header_toggle: true
+#         entities:
+#           - entity: group.all_automations
 
   - title: Basement
     id: basement
@@ -99,6 +134,14 @@ views:
           - light.kitchen_overhead_light_2
           - light.kitchen_overhead_light_3
           - light.kitchen_overhead_light_4
+
+      - id: first_floor_christmas_lights
+        type: entities
+        title: First Floor Christmas Lights
+        show_header_toggle: true
+        entities:
+          - switch.first_floor_christmas_tree_lights_switch
+          - switch.first_floor_media_smart_switch
 
   - title: Second Floor
     id: second_floor
