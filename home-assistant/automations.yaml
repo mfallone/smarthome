@@ -64,21 +64,21 @@
       - switch.first_floor_media_smart_switch
     service: switch.turn_on
 - id: '1539485877650'
-  alias: Ecobee Turn On Away Mode
+  alias: Daily Ecobee Set Hold Away
   trigger:
-  - at: 09:00
+  - at: 08:10
     platform: time
   condition:
   - condition: state
-    entity_id: device_tracker.mike_phone
+    entity_id: group.family_devices
     state: not_home
   action:
   - alias: ''
     data:
-      away_mode: 'on'
+      hold_mode: 'away'
       entity_id:
       - climate.my_ecobee
-    service: climate.set_away_mode
+    service: climate.set_hold_mode
 - id: '1539485877651'
   alias: Ecobee Turn Off Away Mode
   trigger:
