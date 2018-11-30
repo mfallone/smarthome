@@ -54,6 +54,138 @@ views:
         entities:
           - entity: group.all_automations
 
+  - id: floorplan_pane
+    title: Floorplan
+    cards:
+      - id: floorplan_hstack_0
+        type: horizontal-stack
+        cards:
+          - id: floorplan_basement_element
+            title: Basement
+            type: picture-elements
+            image: /local/floorplan/floor_plan_basement.png
+            elements:
+              - type: state-label
+                entity: sensor.basement_multisensor_temperature
+                style:
+                  left: 15%
+                  top: 96%
+              - type: state-label
+                entity: sensor.basement_plants_multisensor_temperature
+                style:
+                  left: 82%
+                  top: 96%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.basement_laundry_light
+                style:
+                  left: 40%
+                  top: 8%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.basement_cantina_light
+                style:
+                  left: 83%
+                  top: 8%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.basement_doorway_light
+                style:
+                  left: 40%
+                  top: 45%
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.basement_desk_smart_switch
+                style:
+                  left: 8%
+                  top: 92%
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.basement_plants_switch
+                style:
+                  left: 90%
+                  top: 92%
+          - id: floorplan_first_floor
+            title: First Floor
+            type: picture-elements
+            image: /local/floorplan/floor_plan_first_floor.png
+            elements:
+              - type: state-label
+                entity: sensor.my_ecobee_temperature
+                style:
+                  left: 17%
+                  top: 35%
+              - type: state-icon
+                tap_action: toggle
+                entity: group.kitchen_overhead_lights
+                style:
+                  left: 20%
+                  top: 20%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.first_floor_ceiling_lights
+                style:
+                  left: 35%
+                  top: 46%
+              - type: state-icon
+                tap_action: toggle
+                entity: group.christmas_lights
+                style:
+                  left: 10%
+                  top: 75%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.first_floor_couch_lights
+                style:
+                  left: 90%
+                  top: 85%
+      - id: floorplan_hstack_1
+        type: horizontal-stack
+        cards:
+          - id: floorplan_second_floor
+            title: Second Floor
+            type: picture-elements
+            image: /local/floorplan/floor_plan_second_floor.png
+            elements:
+              - type: state-label
+                entity: sensor.second_floor_front_room_plant_multisensor_temperature
+                style:
+                  left: 15%
+                  top: 7%
+              - type: state-label
+                entity: sensor.lilbee_temperature
+                style:
+                  left: 82%
+                  top: 77%
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.second_floor_front_room_plant_smart_switch
+                style:
+                  left: 9%
+                  top: 3%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.second_floor_front_room_lights
+                style:
+                  left: 86%
+                  top: 22%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.first_floor_ceiling_lights
+                style:
+                  left: 85%
+                  top: 95%
+          - id: floorplan_third_floor
+            title: Third Floor
+            type: picture-elements
+            image: /local/floorplan/floor_plan_third_floor.png
+            elements:
+              - type: state-label
+                entity: sensor.bedroom_temperature
+                style:
+                  left: 15%
+                  top: 80%
+
 #   - title: Cameras
 #     id: camera_view
 #     icon: mdi:cctv
