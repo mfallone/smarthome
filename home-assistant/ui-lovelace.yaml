@@ -171,7 +171,7 @@ views:
                   top: 22%
               - type: state-icon
                 tap_action: toggle
-                entity: light.first_floor_ceiling_lights
+                entity: light.second_floor_back_room_lights
                 style:
                   left: 85%
                   top: 95%
