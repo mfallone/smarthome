@@ -32,6 +32,17 @@ basement_lights:
 christmas_lights:
   name: Christmas Lights
   view: no
+  icon: mdi:pine-tree
   entities:
     - switch.first_floor_christmas_tree_lights_switch
     - switch.first_floor_media_smart_switch
+
+kitchen_overhead_lights:
+  name: Kitchen Overhead Lights
+  view: no
+  icon: mdi:track-light
+  entities:
+    - light.kitchen_overhead_light_1
+    - light.kitchen_overhead_light_2
+    - light.kitchen_overhead_light_3
+    - light.kitchen_overhead_light_4
