@@ -95,6 +95,18 @@ views:
                   top: 45%
               - type: state-icon
                 tap_action: toggle
+                entity: light.basement_display_lights
+                style:
+                  left: 15%
+                  top: 58%
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.basement_desk_smart_strip_switch_3_work_light
+                style:
+                  left: 8%
+                  top: 88%
+              - type: state-icon
+                tap_action: toggle
                 entity: switch.basement_desk_smart_switch
                 style:
                   left: 8%
