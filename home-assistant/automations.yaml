@@ -11,6 +11,22 @@
       - switch.basement_desk_smart_switch
     service: switch.turn_off
 - id: '1000000000002'
+  alias: Daily Home Presence Detection
+  trigger:
+  - at: '08:05'
+    platform: time
+  condition:
+    - condition: state
+      entity_id: group.family_devices
+      state: home
+  action:
+  - alias: ''
+    data:
+      hold_mode: 'home'
+      entity_id:
+      - climate.my_ecobee
+    service: climate.set_hold_mode
+- id: '1000000000003'
   alias: Night Turn Off All
   trigger:
   - at: 01:15
@@ -22,6 +38,31 @@
       entity_id:
       - scene.turn_off_all
     service: scene.turn_on
+- id: '1225000000000'
+  alias: Christmas Lights Off
+  trigger:
+  - at: '23:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id:
+      - switch.first_floor_christmas_tree_lights_switch
+      - switch.first_floor_media_smart_switch
+    service: switch.turn_off
+- id: '1225000000001'
+  alias: Christmas Lights On
+  trigger:
+  - at: 06:45
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - switch.first_floor_christmas_tree_lights_switch
+      - switch.first_floor_media_smart_switch
+    service: switch.turn_on
 - id: '1539485877650'
   alias: Ecobee Turn On Away Mode
   trigger:
