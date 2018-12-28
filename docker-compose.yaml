@@ -4,7 +4,7 @@ services:
     container_name: home-assistant
     image: homeassistant/home-assistant
     volumes:
-      - $PWD/home-assistant:/config
+      - /opt/smarthome/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
@@ -21,10 +21,10 @@ services:
       - "8883:8883"
       - "9001:9001"
     volumes:
-      - $PWD/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-      - $PWD/mosquitto/data:/mosquitto/data
-      - $PWD/mosquitto/log:/mosquitto/log:rw
-      - $PWD/mosquitto/certs:/mosquitto/certs
+      - /opt/smarthome/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - /opt/smarthome/mosquitto/data:/mosquitto/data
+      - /opt/smarthome/mosquitto/log:/mosquitto/log:rw
+      - /opt/smarthome/mosquitto/certs:/mosquitto/certs
 
   influxdb:
     container_name: influxdb
@@ -32,8 +32,8 @@ services:
     ports: 
       - "8086:8086"
     volumes:
-      - $PWD/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
-      - $PWD/influxdb/influxdb:/var/lib/influxdb
+      - /opt/smarthome/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
+      - /opt/smarthome/influxdb/influxdb:/var/lib/influxdb
   
   grafana:
     container_name: grafana
