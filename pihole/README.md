@@ -35,4 +35,7 @@ docker logs pihole 2> /dev/null | grep 'password'
 
 ### docker-compose
 
-Add this to an existing docker-compose.yaml file 
+See [docker-compose](../docker-compose.yaml) for integration example.
+
+* `ServerIP=` should be set to the host containers IP address.
+* `WEBPASSWORD=` is generated automatically but can be set by using a docker-compose overrride file.
