@@ -43,6 +43,24 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - $PWD/grafana/grafana:/var/lib/grafana
-      
+      - /opt/smarthome/grafana/grafana:/var/lib/grafana
+  
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    volumes:
+      - /opt/smarthome/pihole/pihole:/etc/pihole
+      - /opt/smarthome/pihole/dnsmasq.d:/etc/dnsmasq.d
+    ports:
+      - "53:53/tcp" 
+      - "53:53/udp"
+      - "67:67/udp"
+      - "8080:80/tcp"
+      - "8443:443/tcp"
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    environment:
+      - "ServerIP="
+    restart: always
 
