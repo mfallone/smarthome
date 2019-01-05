@@ -6,6 +6,8 @@ services:
     volumes:
       - /opt/smarthome/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
+      - /opt/smarthome/certbot/letsencrypt/live/hass.example.com/fullchain.pem:/certs/fullchain.pem:ro
+      - /opt/smarthome/certbot/letsencrypt/live/hass.example.com/privkey.pem:/certs/privkey.pem:ro
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     depends_on:
