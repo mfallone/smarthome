@@ -28,6 +28,10 @@ lovelace:
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
+http:
+  ssl_certificate: /certs/fullchain.pem
+  ssl_key: /certs/privkey.pem
+  base_url: !secret hass_domain
 
 # Checks for available updates
 # Note: This component will send some information about your system to
