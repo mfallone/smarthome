@@ -57,12 +57,15 @@ services:
     volumes:
       - /opt/smarthome/pihole/pihole:/etc/pihole
       - /opt/smarthome/pihole/dnsmasq.d:/etc/dnsmasq.d
+      - /opt/smarthome/pihole/lighttpd/external.conf:/etc/lighttpd/external.conf
+      - /opt/smarthome/certbot/letsencrypt/live/pihole.example.com/fullchain.pem:/certs/fullchain.pem:ro
+      - /opt/smarthome/certbot/letsencrypt/live/pihole.example.com/combined.pem:/certs/combined.pem:ro
     ports:
       - "53:53/tcp" 
       - "53:53/udp"
       - "67:67/udp"
-      - "8080:80/tcp"
-      - "8443:443/tcp"
+      - "80:80/tcp"
+      - "443:443/tcp"
     dns:
       - 127.0.0.1
       - 1.1.1.1
