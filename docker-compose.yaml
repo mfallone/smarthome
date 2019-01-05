@@ -49,7 +49,7 @@ services:
       - /opt/smarthome/grafana/grafana.ini:/etc/grafana/grafana.ini
       - /opt/smarthome/grafana/certs/cert.pem:/certs/cert.pem:ro
       - /opt/smarthome/grafana/certs/privkey.pem:/certs/privkey.pem:ro
-    user: "1001"
+    user: "0"
   
   pihole:
     container_name: pihole
