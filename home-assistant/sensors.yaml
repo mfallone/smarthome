@@ -34,3 +34,6 @@
       - status
       - timeleft
       - tonbatt
+
+- platform: pi_hole
+  host: !secret pi_hole_host
