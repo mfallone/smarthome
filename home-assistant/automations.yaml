@@ -13,16 +13,16 @@
 - id: '1000000000002'
   alias: Daily Home Presence Detection
   trigger:
-  - at: '08:05'
+  - at: 08:05
     platform: time
   condition:
-    - condition: state
-      entity_id: group.family_devices
-      state: home
+  - condition: state
+    entity_id: group.family_devices
+    state: home
   action:
   - alias: ''
     data:
-      hold_mode: 'home'
+      hold_mode: home
       entity_id:
       - climate.my_ecobee
     service: climate.set_hold_mode
@@ -75,24 +75,24 @@
   action:
   - alias: ''
     data:
-      hold_mode: 'away'
+      hold_mode: away
       entity_id:
       - climate.my_ecobee
     service: climate.set_hold_mode
 - id: '1539485877651'
   alias: Ecobee Arrive Home
   trigger:
-    - platform: time
-      at: '15:45'
-    - platform: state
-      entity_id: group.family_devices
-      from: not_home
-      to: home
+  - platform: time
+    at: '15:45'
+  - platform: state
+    entity_id: group.family_devices
+    from: not_home
+    to: home
   condition: []
   action:
   - alias: ''
     data:
-      hold_mode: 'home'
+      hold_mode: home
       entity_id:
       - climate.my_ecobee
     service: climate.set_hold_mode
@@ -134,7 +134,10 @@
   trigger:
   - at: 06:20
     platform: time
-  condition: []
+  condition:
+  - condition: state
+    entity_id: group.family_devices
+    state: home
   action:
   - alias: ''
     data:
