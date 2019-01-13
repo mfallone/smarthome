@@ -66,6 +66,8 @@ apcupsd:
 ## SENSORS
 sensor: !include sensors.yaml
 
+binary_sensor: !include binary_sensor.yaml
+
 # Text to speech
 tts:
   - platform: google

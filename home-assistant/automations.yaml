@@ -138,6 +138,9 @@
   - condition: state
     entity_id: group.family_devices
     state: home
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
   action:
   - alias: ''
     data:
