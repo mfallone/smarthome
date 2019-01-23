@@ -12,7 +12,7 @@ views:
           - sun.sun
           - device_tracker.mike_phone
           - device_tracker.kristapixel2mysammichcom
-          - sensor.fastcom_download
+          - sensor.fast_com_download
           - climate.my_ecobee
           - switch.doorbell_switch
 
@@ -41,8 +41,9 @@ views:
       - id: main_map
         type: map
         entities:
-          - device_tracker.mike_phone
-          - device_tracker.kristapixel2mysammichcom
+          - !secret device_1
+          - !secret device_2
+          - !secret zone_1
 
   - title: Automations
     id: automations
@@ -93,6 +94,17 @@ views:
                 style:
                   left: 40%
                   top: 45%
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.basement_plants_stairs_smart_switch
+                style:
+                  left: 80%
+                  top: 47%
+              - type: state-label
+                entity: sensor.basement_plants_multisensor_temperature
+                style:
+                  left: 85%
+                  top: 44%
               - type: state-icon
                 tap_action: toggle
                 entity: light.basement_display_lights
@@ -220,6 +232,7 @@ views:
           - entity: switch.basement_desk_smart_strip_switch_3_work_light
           - entity: light.basement_display_lights
           - entity: switch.basement_plants_switch
+          - entity: switch.basement_plants_stairs_smart_switch
 
       - id: basement_multisensor
         type: entities
@@ -248,6 +261,20 @@ views:
           - entity: sensor.basement_plants_multisensor_sourcenodeid
           - entity: sensor.basement_plants_multisensor_temperature
           - entity: sensor.basement_plants_multisensor_ultraviolet
+
+      - id: basement_plants_stairs_multisensor
+        type: entities
+        title: Plants (Stairs) Multisensor
+        show_header_toggle: true
+        entities:
+          - entity: sensor.basement_plants_stairs_multisensor_alarm_level
+          - entity: sensor.basement_plants_stairs_multisensor_alarm_type
+          - entity: sensor.basement_plants_stairs_multisensor_luminance
+          - entity: sensor.basement_plants_stairs_multisensor_motion
+          - entity: sensor.basement_plants_stairs_multisensor_relative_humidity
+          - entity: sensor.basement_plants_stairs_multisensor_sourcenodeid
+          - entity: sensor.basement_plants_stairs_multisensor_temperature
+          - entity: sensor.basement_plants_stairs_multisensor_ultraviolet
 
       - id: basement_unfinished_lights
         type: entities
@@ -285,7 +312,6 @@ views:
         show_header_toggle: true
         entities:
           - switch.first_floor_christmas_tree_lights_switch
-          - switch.first_floor_media_smart_switch
 
   - title: Second Floor
     id: second_floor
@@ -331,7 +357,7 @@ views:
         type: entities
         title: Internet
         entities:
-          - entity: sensor.fastcom_download
+          - entity: sensor.fast_com_download
           - entity: sensor.teksavvy_usage
           - entity: sensor.teksavvy_remaining
           - entity: sensor.teksavvy_usage_ratio
