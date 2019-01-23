@@ -12,6 +12,7 @@ services:
       - /dev/ttyACM0:/dev/ttyACM0
     depends_on:
       - mqtt
+      - influxdb
     restart: always
     network_mode: host
 
@@ -69,6 +70,8 @@ services:
     dns:
       - 127.0.0.1
       - 1.1.1.1
+    cap_add:
+      - "NET_ADMIN"
     environment:
       - "ServerIP="
     restart: always
