@@ -164,6 +164,7 @@
       entity_id:
       - switch.second_floor_front_room_plant_smart_switch
       - switch.basement_plants_switch
+      - switch.basement_plants_stairs_smart_switch
     service: switch.turn_on
 - id: '1539485877663'
   alias: Night Turn Off Second Floor Plant Lights
@@ -177,4 +178,5 @@
       entity_id:
       - switch.second_floor_front_room_plant_smart_switch
       - switch.basement_plants_switch
+      - switch.basement_plants_stairs_smart_switch
     service: switch.turn_off
