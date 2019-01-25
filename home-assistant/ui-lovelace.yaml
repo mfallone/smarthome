@@ -44,6 +44,10 @@ views:
           - !secret device_1
           - !secret device_2
           - !secret zone_1
+      
+      - id: main_thermostat
+        type: thermostat
+        entity: climate.my_ecobee
 
   - title: Automations
     id: automations
@@ -51,7 +55,7 @@ views:
     cards:
       - type: entities
         title: Automations
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: group.all_automations
 
@@ -216,7 +220,7 @@ views:
 #     cards:
 #       - type: picture-entity
 #         title:  
-#         show_header_toggle: true
+#         show_header_toggle: false
 #         entities:
 #           - entity: group.all_automations
 
@@ -226,7 +230,7 @@ views:
       - id: basement_switches
         type: entities
         title: Switches
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: switch.basement_desk_smart_switch
           - entity: switch.basement_desk_smart_strip_switch_3_work_light
@@ -237,7 +241,7 @@ views:
       - id: basement_multisensor
         type: entities
         title: Multisensor
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: sensor.basement_multisensor_alarm_level
           - entity: sensor.basement_multisensor_alarm_type
@@ -251,7 +255,7 @@ views:
       - id: basement_plants_multisensor
         type: entities
         title: Plants Multisensor
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: sensor.basement_plants_multisensor_alarm_level
           - entity: sensor.basement_plants_multisensor_alarm_type
@@ -265,7 +269,7 @@ views:
       - id: basement_plants_stairs_multisensor
         type: entities
         title: Plants (Stairs) Multisensor
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: sensor.basement_plants_stairs_multisensor_alarm_level
           - entity: sensor.basement_plants_stairs_multisensor_alarm_type
@@ -279,7 +283,7 @@ views:
       - id: basement_unfinished_lights
         type: entities
         title: Lights
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: light.basement_laundry_light
           - entity: light.basement_doorway_light
@@ -291,7 +295,7 @@ views:
       - id: first_floor_lights
         type: entities
         title: First Floor Lights
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - light.first_floor_couch_lights
           - light.first_floor_ceiling_lights
@@ -299,7 +303,7 @@ views:
       - id: first_floor_kitchen_lights
         type: entities
         title: Kitchen Lights
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - light.kitchen_overhead_light_1
           - light.kitchen_overhead_light_2
@@ -309,7 +313,7 @@ views:
       - id: first_floor_christmas_lights
         type: entities
         title: First Floor Christmas Lights
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - switch.first_floor_christmas_tree_lights_switch
 
@@ -319,7 +323,7 @@ views:
       - id: second_floor_lights
         type: glance
         title: Lights
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - light.second_floor_front_room_lights
           - light.second_floor_back_room_lights
@@ -327,7 +331,7 @@ views:
       - id: second_floor_plants_multisensor
         type: entities
         title: Plant Multisensor
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: sensor.second_floor_front_room_plant_multisensor_alarm_level
           - entity: sensor.second_floor_front_room_plant_multisensor_alarm_type
@@ -373,7 +377,7 @@ views:
       - id: ups_card
         type: entities
         title: UPS
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: sensor.ups_battery
           - entity: sensor.ups_input_voltage
@@ -388,7 +392,7 @@ views:
       - id: grouped_cards
         type: entities
         title: All Devices
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - entity: group.all_devices
           - entity: group.all_lights
