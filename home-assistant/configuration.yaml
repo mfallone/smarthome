@@ -73,7 +73,7 @@ tts:
   - platform: google
 
 # Cloud
-cloud:
+cloud: !include cloud.yaml
 
 group: !include groups.yaml
 automation: !include automations.yaml
