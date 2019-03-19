@@ -22,6 +22,8 @@ frontend:
 # Enables configuration UI
 config:
 
+system_health:
+
 lovelace:
   mode: yaml
 
@@ -54,6 +56,10 @@ map:
 # Track the sun
 sun:
 
+fastdotcom:
+  scan_interval:
+    minutes: 30
+
 ## THERMOSTAT
 ecobee:
   api_key: !secret ecobee_api_key
@@ -79,6 +85,9 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+plant: !include plant.yaml
+camera: !include cameras.yaml
+
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -100,3 +109,7 @@ weather:
     name: openweathermap
     friendly_name: Open Weather Map
     api_key: !secret owm_api_key
+
+google:
+  client_id: !secret ga_client_id
+  client_secret: !secret ga_client_secret

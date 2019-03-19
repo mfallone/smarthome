@@ -1,5 +1,3 @@
-- platform: fastdotcom
-  name: fastdotcom
 
 - platform: teksavvy
   api_key: !secret teksavvy_api_key

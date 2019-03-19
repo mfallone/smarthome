@@ -10,8 +10,8 @@ views:
         type: glance
         entities:
           - sun.sun
-          - device_tracker.mike_phone
-          - device_tracker.kristapixel2mysammichcom
+          - !secret device_1
+          - !secret device_2
           - sensor.fast_com_download
           - climate.my_ecobee
           - switch.doorbell_switch
@@ -28,13 +28,16 @@ views:
         entities:
           - entity: group.first_floor_lights
             name: First Floor Lights
-            tap_action: toggle
+            tap_action:
+              action: toggle
           - entity: group.christmas_lights
             name: Christmas Lights
-            tap_action: toggle
+            tap_action:
+              action: toggle
           - entity: light.basement_cantina_light
             name: Cantina Light
-            tap_action: toggle
+            tap_action:
+              action: toggle
         state_filter:
           - "on"
 
@@ -48,7 +51,22 @@ views:
       - id: main_thermostat
         type: thermostat
         entity: climate.my_ecobee
-
+      
+      - id: main_plants_vstack
+        type: vertical-stack
+        cards:
+          - id: main_plants_vstack_second_floor_front_room
+            type: plant-status
+            entity: plant.second_floor_front_room
+            name: Second Floor Plants
+          - type: plant-status
+            entity: plant.basement
+            name: Basement
+            id: main_plants_vstack_basement
+          - type: plant-status
+            entity: plant.basement_stairs
+            name: Basement Stairs
+  
   - title: Automations
     id: automations
     icon: mdi:robot
@@ -81,25 +99,29 @@ views:
                   left: 82%
                   top: 96%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: light.basement_laundry_light
                 style:
                   left: 40%
                   top: 8%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: light.basement_cantina_light
                 style:
                   left: 83%
                   top: 8%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: light.basement_doorway_light
                 style:
                   left: 40%
                   top: 45%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: switch.basement_plants_stairs_smart_switch
                 style:
                   left: 80%
@@ -110,25 +132,29 @@ views:
                   left: 85%
                   top: 44%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: light.basement_display_lights
                 style:
                   left: 15%
                   top: 58%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: switch.basement_desk_smart_strip_switch_3_work_light
                 style:
                   left: 8%
                   top: 88%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: switch.basement_desk_smart_switch
                 style:
                   left: 8%
                   top: 92%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: switch.basement_plants_switch
                 style:
                   left: 90%
@@ -144,25 +170,29 @@ views:
                   left: 17%
                   top: 35%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: group.kitchen_overhead_lights
                 style:
                   left: 20%
                   top: 20%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: light.first_floor_ceiling_lights
                 style:
                   left: 35%
                   top: 46%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: group.christmas_lights
                 style:
                   left: 10%
                   top: 75%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: light.first_floor_couch_lights
                 style:
                   left: 90%
@@ -186,19 +216,22 @@ views:
                   left: 82%
                   top: 77%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: switch.second_floor_front_room_plant_smart_switch
                 style:
                   left: 9%
                   top: 3%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: light.second_floor_front_room_lights
                 style:
                   left: 86%
                   top: 22%
               - type: state-icon
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 entity: light.second_floor_back_room_lights
                 style:
                   left: 85%
@@ -271,14 +304,14 @@ views:
         title: Plants (Stairs) Multisensor
         show_header_toggle: false
         entities:
-          - entity: sensor.basement_plants_stairs_multisensor_alarm_level
-          - entity: sensor.basement_plants_stairs_multisensor_alarm_type
-          - entity: sensor.basement_plants_stairs_multisensor_luminance
-          - entity: sensor.basement_plants_stairs_multisensor_motion
-          - entity: sensor.basement_plants_stairs_multisensor_relative_humidity
-          - entity: sensor.basement_plants_stairs_multisensor_sourcenodeid
-          - entity: sensor.basement_plants_stairs_multisensor_temperature
-          - entity: sensor.basement_plants_stairs_multisensor_ultraviolet
+          - entity: sensor.basement_stairs_plants_multisensor_alarm_level
+          - entity: sensor.basement_stairs_plants_multisensor_alarm_type
+          - entity: sensor.basement_stairs_plants_multisensor_luminance
+          - entity: sensor.basement_stairs_plants_multisensor_motion
+          - entity: sensor.basement_stairs_plants_multisensor_relative_humidity
+          - entity: sensor.basement_stairs_plants_multisensor_sourcenodeid
+          - entity: sensor.basement_stairs_plants_multisensor_temperature
+          - entity: sensor.basement_stairs_plants_multisensor_ultraviolet
 
       - id: basement_unfinished_lights
         type: entities
@@ -299,6 +332,7 @@ views:
         entities:
           - light.first_floor_couch_lights
           - light.first_floor_ceiling_lights
+          - group.kitchen_overhead_lights
 
       - id: first_floor_kitchen_lights
         type: entities
@@ -397,3 +431,16 @@ views:
           - entity: group.all_devices
           - entity: group.all_lights
           - entity: group.all_switches
+
+  - title: TEST
+    id: test_pane
+    cards:
+      - id: calendar
+        type: entities
+        title: Calendar
+        entities:
+          - entity:  calendar.casa_fallone_gmail_com
+
+      - id: test_picture
+        type: picture
+        image: !secret camera_indoor_temp_graph
