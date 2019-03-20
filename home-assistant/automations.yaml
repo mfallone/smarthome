@@ -167,7 +167,7 @@
       - switch.basement_plants_stairs_smart_switch
     service: switch.turn_on
 - id: '1539485877663'
-  alias: Night Turn Off Second Floor Plant Lights
+  alias: Night - Turn Off Second Floor Plant Lights
   trigger:
   - at: '20:00'
     platform: time
@@ -180,3 +180,34 @@
       - switch.basement_plants_switch
       - switch.basement_plants_stairs_smart_switch
     service: switch.turn_off
+- id: '1553052830003'
+  alias: Turn off Basement TV
+  trigger: []
+  condition: []
+  action:
+  - data:
+      entity_id: remote.harmony_hub_basement
+    service: remote.turn_off
+- id: '1553052979389'
+  alias: Turn off First Floor TV
+  trigger:
+  - at: 02:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: remote.harmony_hub
+    service: remote.turn_off
+- id: '1553053185254'
+  alias: Night Turn off TVs
+  trigger:
+  - at: 02:00
+    platform: time
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id:
+      - automation.turn_off_basement_tv
+      - automation.turn_off_first_floor_tv
+    service: automation.trigger

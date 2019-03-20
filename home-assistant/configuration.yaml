@@ -107,7 +107,6 @@ influxdb:
 weather:
   - platform: openweathermap
     name: openweathermap
-    friendly_name: Open Weather Map
     api_key: !secret owm_api_key
 
 google:
