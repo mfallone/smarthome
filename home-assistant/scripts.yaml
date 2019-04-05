@@ -1,0 +1,31 @@
+'1553290749185':
+  alias: Watch Basement TV
+  sequence:
+  - data:
+      activity: Shield TV
+      entity_id: remote.harmony_hub_basement
+    service: remote.turn_on
+'1553291269911':
+  alias: Turn off Basement TV
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub_basement
+    service: remote.turn_off
+'1554239769494':
+  alias: Reset Z-Wave Meters
+  sequence:
+  - data:
+      node_id: 2
+    service: zwave.reset_node_meters
+  - data:
+      node_id: 16
+    service: zwave.reset_node_meters
+  - data:
+      node_id: 12
+    service: zwave.reset_node_meters
+  - data:
+      node_id: 17
+    service: zwave.reset_node_meters
+  - data:
+      node_id: 11
+    service: zwave.reset_node_meters

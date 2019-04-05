@@ -211,3 +211,13 @@
       - automation.turn_off_basement_tv
       - automation.turn_off_first_floor_tv
     service: automation.trigger
+- id: '1554240918976'
+  alias: Reset Energy Meters
+  trigger:
+  - at: 00:00
+    platform: time
+  condition:
+  - condition: template
+    value_template: "{{ now().day == 1 }}"
+  action:
+  - service: script.1554239769494
