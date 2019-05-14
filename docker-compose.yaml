@@ -6,8 +6,8 @@ services:
     volumes:
       - /opt/smarthome/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
-      - /opt/smarthome/certbot/letsencrypt/live/hass.example.com/fullchain.pem:/certs/fullchain.pem:ro
-      - /opt/smarthome/certbot/letsencrypt/live/hass.example.com/privkey.pem:/certs/privkey.pem:ro
+      - /opt/smarthome/home-assistant/certs/fullchain.pem:/certs/fullchain.pem:ro
+      - /opt/smarthome/home-assistant/certs/privkey.pem:/certs/privkey.pem:ro
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     depends_on:
@@ -61,8 +61,8 @@ services:
       - /opt/smarthome/pihole/pihole:/etc/pihole
       - /opt/smarthome/pihole/dnsmasq.d:/etc/dnsmasq.d
       - /opt/smarthome/pihole/lighttpd/external.conf:/etc/lighttpd/external.conf
-      - /opt/smarthome/certbot/letsencrypt/live/pihole.example.com/fullchain.pem:/certs/fullchain.pem:ro
-      - /opt/smarthome/certbot/letsencrypt/live/pihole.example.com/combined.pem:/certs/combined.pem:ro
+      - /opt/smarthome/pihole/certs/fullchain.pem:/certs/fullchain.pem:ro
+      - /opt/smarthome/pihole/certs/combined.pem:/certs/combined.pem:ro
     ports:
       - "53:53/tcp" 
       - "53:53/udp"
