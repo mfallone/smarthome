@@ -1,7 +1,14 @@
 docker-compose.override.yaml
 *.bak
 
+certbot
+
+grafana/certs
+grafana/grafana
+
 home-assistant/.HA_VERSION
+home-assistant/.cloud
+home-assistant/.google.token
 home-assistant/.storage
 home-assistant/.uuid
 home-assistant/*.bak
@@ -14,8 +21,13 @@ home-assistant/pyozw.sqlite
 home-assistant/customize.yaml
 home-assistant/known_devices.yaml
 home-assistant/secrets.yaml
+home-assistant/zwave_device_config.yaml
+
+influxdb/influxdb/*
 
 mosquitto/certs
 mosquitto/log
 
-influxdb/influxdb/*
+pihole/dnsmasq.d
+pihole/lighttpd
+pihole/pihole
