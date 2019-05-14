@@ -47,35 +47,106 @@ views:
           - !secret device_1
           - !secret device_2
           - !secret zone_1
+        default_zoom: 14
       
       - id: main_thermostat
         type: thermostat
         entity: climate.my_ecobee
-      
+  
       - id: main_plants_vstack
         type: vertical-stack
         cards:
-          - id: main_plants_vstack_second_floor_front_room
-            type: plant-status
-            entity: plant.second_floor_front_room
-            name: Second Floor Plants
-          - type: plant-status
-            entity: plant.basement
-            name: Basement
-            id: main_plants_vstack_basement
-          - type: plant-status
-            entity: plant.basement_stairs
-            name: Basement Stairs
+          - id: main_basement_plants_glance
+            type: glance
+            title: Basement Plants
+            entities:
+              - entity: switch.basement_plants_stairs_smart_switch
+                name: Second Floor Plants Switch
+                id: ll_basement_stairs_plants_switch
+              - entity: sensor.basement_stairs_plants_multisensor_temperature
+                name: Temperature
+                id: ll_basement_stairs_plants_temperature
+              - entity: sensor.basement_stairs_plants_multisensor_luminance
+                name: Brightness
+                id: ll_basement_stairs_plants_luminance
+                
+              - entity: switch.basement_plants_switch
+                name: Second Floor Plants Switch
+                id: ll_basement_plants_switch
+              - entity: sensor.basement_plants_multisensor_temperature
+                name: Temperature
+                id: ll_basement_plants_temperature
+              - entity: sensor.basement_plants_multisensor_luminance
+                name: Brightness
+                id: ll_basement_plants_luminance
+           
+          - id: main_plants_glance
+            type: glance
+            title: Second Floor Plants Overview
+            entities:
+              - entity: switch.second_floor_front_room_plant_smart_switch
+                name: Second Floor Plants Switch
+                id: ll_second_floor_plants_switch
+              - entity: sensor.second_floor_front_room_plant_multisensor_temperature
+                name: Temperature
+                id: ll_second_floor_plants_temperature
+              - entity: sensor.second_floor_front_room_plant_multisensor_luminance
+                name: Brightness
+                id: ll_second_floor_plants_luminance
+          
+          - id: main_plant_lights
+            type: entities
+            entities: 
+              - entity: automation.day_turn_on_second_floor_plant_lights
+                secondary_info: last-changed
+                action_name: Run
+                icon: mdi:sprout
   
   - title: Automations
     id: automations
     icon: mdi:robot
     cards:
-      - type: entities
-        title: Automations
+      - id: automation_entities
+        type: entities
+        name: Automations
         show_header_toggle: false
         entities:
           - entity: group.all_automations
+
+      - id: automation_tv_stack
+        type: horizontal-stack
+        cards:
+          - id: automation_trigger_basement_tv
+            type: entity-button
+            name: Basement TV
+            entity: remote.harmony_hub_basement
+            tap_action:
+              action: call-service
+              service: remote.turn_on
+              service_data: 
+                entity_id: remote.harmony_hub_basement
+                activity: "Shield TV"
+            hold_action:
+              action: call-service
+              service: remote.turn_off
+              service_data:
+                entity_id: remote.harmony_hub_basement
+
+          - id: automation_trigger_first_floor_tv
+            type: entity-button
+            name: First Floor TV
+            entity: remote.harmony_hub
+            tap_action:
+              action: call-service
+              service: remote.turn_on
+              service_data: 
+                entity_id: remote.harmony_hub
+                activity: "Shield TV"
+            hold_action:
+              action: call-service
+              service: remote.turn_off
+              service_data:
+                entity_id: remote.harmony_hub
 
   - id: floorplan_pane
     title: Floorplan
@@ -211,7 +282,7 @@ views:
                   left: 15%
                   top: 7%
               - type: state-label
-                entity: sensor.lilbee_temperature
+                entity: sensor.lil_bee_temperature
                 style:
                   left: 82%
                   top: 77%
