@@ -13,6 +13,9 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+recorder:
+  purge_keep_days: 30
+
 # Show links to resources in log and frontend
 #introduction:
 
