@@ -13,32 +13,50 @@ services:
     depends_on:
       - mqtt
       - influxdb
+      - sql
     restart: always
-    network_mode: host
+    #network_mode: host
     ports:
       - "8123:8123"
+    networks:
+      - frontend
+      - backend
+
+  sql:
+    container_name: sql
+    image: postgres
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/smarthome/sql/data:/var/lib/postgresql/data
+      - /opt/smarthome/sql/etc/postgresql:/etc/postgresql
+      - /opt/smarthome/sql//var/log/postgresql:/var/log/postgresql
+    networks:
+      - backend
 
   mqtt:
     container_name: mqtt
     image: eclipse-mosquitto
-    ports:
-      - "1883:1883"
-      - "8883:8883"
-      - "9001:9001"
     volumes:
       - /opt/smarthome/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - /opt/smarthome/mosquitto/data:/mosquitto/data
       - /opt/smarthome/mosquitto/log:/mosquitto/log:rw
       - /opt/smarthome/mosquitto/certs:/mosquitto/certs
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "9001:9001"
+    networks:
+      - frontend
+      - backend
 
   influxdb:
     container_name: influxdb
     image: influxdb
-    ports: 
-      - "8086:8086"
     volumes:
       - /opt/smarthome/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
       - /opt/smarthome/influxdb/influxdb:/var/lib/influxdb
+    networks:
+      - backend
   
   grafana:
     container_name: grafana
@@ -53,6 +71,8 @@ services:
       - influxdb
     ports:
       - "3000:3000"
+    networks:
+      - backend
   
   pihole:
     container_name: pihole
@@ -72,9 +92,15 @@ services:
       - "67:67/udp"
       - "80:80/tcp"
       - "443:443/tcp"
+    networks:
+      - frontend
     dns:
       - 127.0.0.1
       - 1.1.1.1
     cap_add:
       - "NET_ADMIN"
 
+networks:
+ frontend:
+   # frontend network
+ backend:
