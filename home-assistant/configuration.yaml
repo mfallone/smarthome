@@ -14,6 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 recorder:
+  db_url: !secret recorder_db
   purge_keep_days: 30
 
 # Show links to resources in log and frontend
