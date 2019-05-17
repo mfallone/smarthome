@@ -89,7 +89,6 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
-plant: !include plant.yaml
 camera: !include cameras.yaml
 
 
