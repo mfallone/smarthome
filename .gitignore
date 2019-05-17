@@ -15,6 +15,7 @@ home-assistant/*.bak
 home-assistant/*.txt
 home-assistant/*.xml
 home-assistant/*.conf
+home-assistant/cloud.yaml
 home-assistant/home-assistant.log
 home-assistant/home-assistant_v2.db*
 home-assistant/pyozw.sqlite
