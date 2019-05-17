@@ -19,7 +19,7 @@ services:
       - "8123:8123"
 
   mqtt:
-    container_name: eclipse-mosquitto
+    container_name: mqtt
     image: eclipse-mosquitto
     ports:
       - "1883:1883"
@@ -43,26 +43,29 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana
-    depends_on:
-      - influxdb
-    ports:
-      - "3000:3000"
+    user: "0"
     volumes:
       - /opt/smarthome/grafana/grafana:/var/lib/grafana
       - /opt/smarthome/grafana/grafana.ini:/etc/grafana/grafana.ini
       - /opt/smarthome/grafana/certs/fullchain.pem:/certs/fullchain.pem:ro
       - /opt/smarthome/grafana/certs/privkey.pem:/certs/privkey.pem:ro
-    user: "0"
+    depends_on:
+      - influxdb
+    ports:
+      - "3000:3000"
   
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
+    restart: always
     volumes:
       - /opt/smarthome/pihole/pihole:/etc/pihole
       - /opt/smarthome/pihole/dnsmasq.d:/etc/dnsmasq.d
       - /opt/smarthome/pihole/lighttpd/external.conf:/etc/lighttpd/external.conf
       - /opt/smarthome/pihole/certs/fullchain.pem:/certs/fullchain.pem:ro
       - /opt/smarthome/pihole/certs/combined.pem:/certs/combined.pem:ro
+    environment:
+      - "ServerIP="
     ports:
       - "53:53/tcp" 
       - "53:53/udp"
@@ -74,7 +77,4 @@ services:
       - 1.1.1.1
     cap_add:
       - "NET_ADMIN"
-    environment:
-      - "ServerIP="
-    restart: always
 
