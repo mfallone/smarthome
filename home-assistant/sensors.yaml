@@ -33,16 +33,9 @@
       - timeleft
       - tonbatt
 
-        #- platform: pi_hole
-        #  host: !secret pi_hole_host
-        #  monitored_conditions:
-        #  - ads_blocked_today
-        #  - ads_percentage_today
-        #  - dns_queries_today
-        #  - domains_being_blocked
-        #  - queries_cached
-        #  - queries_forwarded
-        #  - unique_domains
-        #  - unique_clients
-        #  - clients_ever_seen
+- platform: mqtt
+  state_topic: !secret mqtt_sensor1_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: !secret mqtt_sensor1_name
 

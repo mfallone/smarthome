@@ -2,8 +2,8 @@
   home_interval: 15
   consider_home: 0:10:00
   hosts:
-    - !secret mike_phone_ip
-    - !secret krista_phone_ip
+    - !secret device_1_phone_ip
+    - !secret device_2_phone_ip
 - platform: ping
   hosts:
     zuul: !secret host_zuul_ip
@@ -13,6 +13,7 @@
     cerberus: !secret host_cerberus_ip
     beholder: !secret host_beholder_ip
     brain: !secret host_brain_ip
+    !secret device_2: !secret device_2_phone_ip
 
 - platform: owntracks
   consider_home: 0:10:00

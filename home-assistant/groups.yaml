@@ -2,8 +2,8 @@ family_devices:
   name: Family
   view: no
   entities:
-    - device_tracker.mike_phone
-    - device_tracker.kristapixel2mysammichcom
+    - !secret device_1
+    - !secret device_2
 
 basement_devices:
   name: Basement Devices
