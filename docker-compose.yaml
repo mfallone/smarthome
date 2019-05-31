@@ -49,6 +49,20 @@ services:
       - frontend
       - backend
 
+  ot-recorder:
+    container_name: ot-recorder
+    image: owntracks/recorder
+    environment:
+      - "OTR_HOST=mqtt"
+    volumes:
+      - recorder-data:/store
+    ports:
+      - 8083:8083
+    networks:
+      - frontend
+    depends_on:
+      - mqtt
+
   influxdb:
     container_name: influxdb
     image: influxdb
@@ -99,6 +113,9 @@ services:
       - 1.1.1.1
     cap_add:
       - "NET_ADMIN"
+
+volumes:
+  recorder-data:
 
 networks:
  frontend:
