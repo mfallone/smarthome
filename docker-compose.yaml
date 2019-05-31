@@ -78,7 +78,10 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana
+    restart: always
     user: "0"
+    environment:
+      - "GF_INSTALL_PLUGINS=grafana-worldmap-panel"
     volumes:
       - /opt/smarthome/grafana/grafana:/var/lib/grafana
       - /opt/smarthome/grafana/grafana.ini:/etc/grafana/grafana.ini
