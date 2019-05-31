@@ -69,7 +69,10 @@ services:
     volumes:
       - /opt/smarthome/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
       - /opt/smarthome/influxdb/influxdb:/var/lib/influxdb
+    ports:
+      - "8086:8086"
     networks:
+      - frontend
       - backend
   
   grafana:
@@ -118,6 +121,5 @@ volumes:
   recorder-data:
 
 networks:
- frontend:
-   # frontend network
- backend:
+  frontend:
+  backend:
