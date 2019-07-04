@@ -123,34 +123,34 @@ views:
           - id: automation_trigger_basement_tv
             type: entity-button
             name: Basement TV
-            entity: remote.harmony_hub_basement
+            entity: remote.harmonyhub_basement
             tap_action:
               action: call-service
               service: remote.turn_on
               service_data: 
-                entity_id: remote.harmony_hub_basement
+                entity_id: remote.harmonyhub_basement
                 activity: "Shield TV"
             hold_action:
               action: call-service
               service: remote.turn_off
               service_data:
-                entity_id: remote.harmony_hub_basement
+                entity_id: remote.harmonyhub_basement
 
           - id: automation_trigger_first_floor_tv
             type: entity-button
             name: First Floor TV
-            entity: remote.harmony_hub
+            entity: remote.harmonyhub_mainfloor
             tap_action:
               action: call-service
               service: remote.turn_on
               service_data: 
-                entity_id: remote.harmony_hub
+                entity_id: remote.harmonyhub_mainfloor
                 activity: "Shield TV"
             hold_action:
               action: call-service
               service: remote.turn_off
               service_data:
-                entity_id: remote.harmony_hub
+                entity_id: remote.harmonyhub_mainfloor
 
   - id: tracker_pane
     title: Tracker
@@ -288,6 +288,18 @@ views:
                 style:
                   left: 90%
                   top: 92%
+              - type: state-icon
+                tap_action:
+                  action: call-service
+                  service: remote.turn_on
+                  service_data: 
+                    entity_id: remote.harmonyhub_basement
+                    activity: "Shield TV"
+                icon: mdi:television
+                entity: remote.harmonyhub_basement
+                style:
+                  left: 90%
+                  top: 80%
           - id: floorplan_first_floor
             title: First Floor
             type: picture-elements
@@ -325,6 +337,18 @@ views:
                 entity: light.first_floor_couch_lights
                 style:
                   left: 90%
+                  top: 85%
+              - type: state-icon
+                tap_action:
+                  action: call-service
+                  service: remote.turn_on
+                  service_data: 
+                    entity_id: remote.harmonyhub_mainfloor
+                    activity: "Shield TV"
+                icon: mdi:television
+                entity: remote.harmonyhub_mainfloor
+                style:
+                  left: 10%
                   top: 85%
       - id: floorplan_hstack_1
         type: horizontal-stack
