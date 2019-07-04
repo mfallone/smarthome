@@ -34,8 +34,52 @@
       - tonbatt
 
 - platform: mqtt
-  state_topic: !secret mqtt_sensor1_topic
+  state_topic: !secret mqtt_sensor1_device1_topic
   value_template: '{{ value_json.confidence }}'
   unit_of_measurement: '%'
-  name: !secret mqtt_sensor1_name
+  name: !secret mqtt_sensor1_device1_name
+- platform: mqtt
+  state_topic: !secret mqtt_sensor2_device1_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: !secret mqtt_sensor2_device1_name
+- platform: mqtt
+  state_topic: !secret mqtt_sensor3_device1_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: !secret mqtt_sensor3_device1_name
+
+- platform: min_max
+  name: !secret device1_occupancy_name
+  type: max
+  round_digits: 0
+  entity_ids:
+    - !secret monitor_sensor1_device1
+    - !secret monitor_sensor2_device1
+    - !secret monitor_sensor3_device1
+
+- platform: mqtt
+  state_topic: !secret mqtt_sensor1_device2_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: !secret mqtt_sensor1_device2_name
+- platform: mqtt
+  state_topic: !secret mqtt_sensor2_device2_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: !secret mqtt_sensor2_device2_name
+- platform: mqtt
+  state_topic: !secret mqtt_sensor3_device2_topic
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: !secret mqtt_sensor3_device2_name
+
+- platform: min_max
+  name: !secret device2_occupancy_name
+  type: max
+  round_digits: 0
+  entity_ids:
+    - !secret monitor_sensor1_device2
+    - !secret monitor_sensor2_device2
+    - !secret monitor_sensor3_device2
 

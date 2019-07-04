@@ -10,8 +10,8 @@ views:
         type: glance
         entities:
           - sun.sun
-          - !secret device_1
-          - !secret device_2
+          - !secret person_1
+          - !secret person_2
           - sensor.fast_com_download
           - climate.my_ecobee
           - switch.doorbell_switch
@@ -147,6 +147,60 @@ views:
               service: remote.turn_off
               service_data:
                 entity_id: remote.harmony_hub
+
+  - id: tracker_pane
+    title: Tracker
+    cards:
+      - id: tracker_vstack_0
+        type: vertical-stack
+        cards:
+          - id: tracker_entities
+            title: Tracker
+            show_header_toggle: false
+            type: entities
+            entities:
+              - entity: !secret device1_occupancy_id
+              - entity: !secret device2_occupancy_id
+          - id: gauge_device1_hstack
+            type: horizontal-stack
+            cards:
+            - id: gauge1_device1
+              type: gauge
+              entity: !secret monitor_sensor1_device1
+            - id: gauge2_device1
+              type: gauge
+              entity: !secret monitor_sensor2_device1
+            - id: gauge3_device1
+              type: gauge
+              entity: !secret monitor_sensor3_device1
+          - id: gauge_device2_hstack
+            type: horizontal-stack
+            cards:
+            - id: gauge1_device2
+              type: gauge
+              entity: !secret monitor_sensor1_device2
+            - id: gauge2_device2
+              type: gauge
+              entity: !secret monitor_sensor2_device2
+            - id: gauge3_device2
+              type: gauge
+              entity: !secret monitor_sensor3_device2
+
+          - id: history_graph_occupancy_confidence
+            title: History Graph Tracker
+            type: history-graph
+            unit_of_measurement:
+            entities:
+              - entity: !secret device1_occupancy_id
+                unit_of_measurement:
+
+          - id: history_graph_sensors_device1
+            title: History Graph Device 1
+            type: history-graph
+            entities:
+              - entity: !secret monitor_sensor1_device1
+              - entity: !secret monitor_sensor2_device1
+              - entity: !secret monitor_sensor3_device1
 
   - id: floorplan_pane
     title: Floorplan
@@ -477,7 +531,6 @@ views:
           - entity: sensor.teksavvy_on_peak_download
           - entity: sensor.teksavvy_on_peak_upload
           - entity: sensor.teksavvy_on_peak_total
-
 
       - id: ups_card
         type: entities
