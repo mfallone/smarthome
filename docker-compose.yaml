@@ -40,7 +40,9 @@ services:
       - /opt/smarthome/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - /opt/smarthome/mosquitto/data:/mosquitto/data
       - /opt/smarthome/mosquitto/log:/mosquitto/log:rw
-      - /opt/smarthome/mosquitto/certs:/mosquitto/certs
+      - /opt/smarthome/mosquitto/certs/fullchain.pem:/certs/fullchain.pem:ro
+      - /opt/smarthome/mosquitto/certs/cert.pem:/certs/cert.pem:ro
+      - /opt/smarthome/mosquitto/certs/privkey.pem:/certs/privkey.pem:ro
     ports:
       - "1883:1883"
       - "8883:8883"
