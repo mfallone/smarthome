@@ -112,6 +112,11 @@ weather:
   - platform: openweathermap
     name: openweathermap
     api_key: !secret owm_api_key
+  - platform: environment_canada
+    name: envrionment_canada_home
+    latitude: !secret lat
+    longitude: !secret long
+
 
 google:
   client_id: !secret ga_client_id
