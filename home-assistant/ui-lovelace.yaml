@@ -20,6 +20,10 @@ views:
         type: weather-forecast
         entity: weather.openweathermap
 
+      - id: main_weather_envcan_home
+        type: weather-forecast
+        entity: weather.envrionment_canada_home
+
       - id: main_whats_on
         type: entity-filter
         card: 
