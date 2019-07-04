@@ -544,6 +544,88 @@ views:
           - device_tracker.beholder
           - device_tracker.brain
 
+      - id: energy_meters_hstack_0
+        title: Rack Smart Strip Energy
+        type: horizontal-stack
+        cards:
+          - id: daily_energy_meters_rack_vstack_0
+            type: vertical-stack
+            cards:
+            - id: daily_energy_meter_gauge0_1
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_1_daily_meter
+            - id: daily_energy_meter_gauge0_2
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_2_daily_meter
+            - id: daily_energy_meter_gauge0_3
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_3_daily_meter
+            - id: daily_energy_meter_gauge0_4
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_4_daily_meter
+            - id: daily_energy_meter_gauge0_5
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_5_daily_meter
+          - id: monthly_energy_meters_rack_vstack_1
+            type: vertical-stack
+            cards:
+            - id: monthly_energy_meter_gauge0_1
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_1_monthly_meter
+            - id: monthly_energy_meter_gauge0_2
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_2_monthly_meter
+            - id: monthly_energy_meter_gauge0_3
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_3_monthly_meter
+            - id: monthly_energy_meter_gauge0_4
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_4_monthly_meter
+            - id: monthly_energy_meter_gauge0_5
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_5_monthly_meter
+
+      - id: energy_meters_hstack_1
+        title: Desk Smart Strip Energy
+        type: horizontal-stack
+        cards:
+          - id: daily_energy_meters_desk_vstack_1
+            type: vertical-stack
+            cards:
+            - id: daily_energy_meter_gauge1_1
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_1_daily_meter
+            - id: daily_energy_meter_gauge1_2
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_2_daily_meter
+            - id: daily_energy_meter_gauge1_3
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_3_daily_meter
+            - id: daily_energy_meter_gauge1_4
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_4_daily_meter
+            - id: daily_energy_meter_gauge1_5
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_5_daily_meter
+          - id: monthly_energy_meters_desk_vstack_1
+            type: vertical-stack
+            cards:
+            - id: monthly_energy_meter_gauge1_1
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_1_monthly_meter
+            - id: monthly_energy_meter_gauge1_2
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_2_monthly_meter
+            - id: monthly_energy_meter_gauge1_3
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_3_monthly_meter
+            - id: monthly_energy_meter_gauge1_4
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_4_monthly_meter
+            - id: monthly_energy_meter_gauge1_5
+              type: gauge
+              entity:  sensor.basement_rack_smart_strip_energy_5_monthly_meter
+
       - id: internet_monitor
         type: entities
         title: Internet
