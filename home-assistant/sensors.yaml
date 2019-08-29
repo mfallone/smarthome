@@ -1,4 +1,3 @@
-
 - platform: teksavvy
   api_key: !secret teksavvy_api_key
   total_bandwidth: 0

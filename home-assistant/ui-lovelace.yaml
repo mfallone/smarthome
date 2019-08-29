@@ -15,6 +15,7 @@ views:
           - sensor.fast_com_download
           - climate.my_ecobee
           - switch.doorbell_switch
+          - sensor.octoprint_current_state
 
       - id: main_weather_owm
         type: weather-forecast

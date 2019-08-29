@@ -3,3 +3,8 @@
   province: !secret workday_province
   workdays: [mon, tue, wed, thu, fri]
   #exclude: [sat, sun, holiday]
+
+- platform: octoprint
+  monitored_conditions:
+    - Printing
+    - Printing Error

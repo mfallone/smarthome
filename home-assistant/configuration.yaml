@@ -121,3 +121,4 @@ weather:
 google:
   client_id: !secret ga_client_id
   client_secret: !secret ga_client_secret
+octoprint: !include octoprint.yaml
