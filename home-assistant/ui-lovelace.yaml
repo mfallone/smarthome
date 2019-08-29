@@ -38,7 +38,7 @@ views:
             name: Christmas Lights
             tap_action:
               action: toggle
-          - entity: light.basement_cantina_light
+          - entity: light.cantina_light_bulb
             name: Cantina Light
             tap_action:
               action: toggle
@@ -230,21 +230,21 @@ views:
               - type: state-icon
                 tap_action:
                   action: toggle
-                entity: light.basement_laundry_light
+                entity: light.basement_laundry_light_bulb
                 style:
                   left: 40%
                   top: 8%
               - type: state-icon
                 tap_action:
                   action: toggle
-                entity: light.basement_cantina_light
+                entity: light.cantina_light_bulb
                 style:
                   left: 83%
                   top: 8%
               - type: state-icon
                 tap_action:
                   action: toggle
-                entity: light.basement_doorway_light
+                entity: light.basement_doorway_light_bulb
                 style:
                   left: 40%
                   top: 45%
@@ -471,9 +471,9 @@ views:
         title: Lights
         show_header_toggle: false
         entities:
-          - entity: light.basement_laundry_light
-          - entity: light.basement_doorway_light
-          - entity: light.basement_cantina_light
+          - entity: light.basement_laundry_light_bulb
+          - entity: light.basement_doorway_light_bulb
+          - entity: light.cantina_light_bulb
     
   - title: Main Floor
     id: main_floor

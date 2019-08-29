@@ -7,8 +7,8 @@
     light.first_floor_couch_lights: off
     light.second_floor_back_room_lights: off
     light.second_floor_front_room_lights: off
-    light.basement_laundry_light: off
-    light.basement_doorway_light: off
-    light.basement_cantina_light: off
+    light.basement_laundry_light_bulb: off
+    light.basement_doorway_light_bulb: off
+    light.cantina_light_bulb: off
     switch.first_floor_christmas_tree_lights_switch: off
     switch.first_floor_media_smart_switch: off

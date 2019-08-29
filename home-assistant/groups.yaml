@@ -27,7 +27,7 @@ basement_lights:
   name: Basement Lights
   view: no
   entities:
-    - light.basement_cantina_light
+    - light.cantina_light_bulb
 
 christmas_lights:
   name: Christmas Lights
