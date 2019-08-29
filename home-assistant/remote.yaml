@@ -1,0 +1,7 @@
+- platform: harmony
+  name: !secret remote_hub_1_name
+  host: !secret remote_hub_1_ip
+
+- platform: harmony
+  name: !secret remote_hub_2_name
+  host: !secret remote_hub_2_ip

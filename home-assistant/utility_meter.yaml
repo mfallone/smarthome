@@ -1,0 +1,77 @@
+basement_rack_smart_strip_energy_1_daily_meter:
+  source: sensor.basement_rack_smart_strip_energy_1
+  cycle: daily
+basement_rack_smart_strip_energy_2_daily_meter:
+  source: sensor.basement_rack_smart_strip_energy_2
+  cycle: daily
+basement_rack_smart_strip_energy_3_daily_meter:
+  source: sensor.basement_rack_smart_strip_energy_3
+  cycle: daily
+basement_rack_smart_strip_energy_4_daily_meter:
+  source: sensor.basement_rack_smart_strip_energy_4
+  cycle: daily
+basement_rack_smart_strip_energy_5_daily_meter:
+  source: sensor.basement_rack_smart_strip_energy_5
+  cycle: daily
+
+basement_rack_smart_strip_energy_1_monthly_meter:
+  source: sensor.basement_rack_smart_strip_energy_1
+  cycle: monthly
+basement_rack_smart_strip_energy_2_monthly_meter:
+  source: sensor.basement_rack_smart_strip_energy_2
+  cycle: monthly
+basement_rack_smart_strip_energy_3_monthly_meter:
+  source: sensor.basement_rack_smart_strip_energy_3
+  cycle: monthly
+basement_rack_smart_strip_energy_4_monthly_meter:
+  source: sensor.basement_rack_smart_strip_energy_4
+  cycle: monthly
+basement_rack_smart_strip_energy_5_monthly_meter:
+  source: sensor.basement_rack_smart_strip_energy_5
+  cycle: monthly
+
+basement_desk_smart_strip_energy_1_daily_meter:
+  source: sensor.basement_desk_smart_strip_energy_1
+  cycle: daily
+basement_desk_smart_strip_energy_2_daily_meter:
+  source: sensor.basement_desk_smart_strip_energy_2
+  cycle: daily
+basement_desk_smart_strip_energy_3_daily_meter:
+  source: sensor.basement_desk_smart_strip_energy_3
+  cycle: daily
+basement_desk_smart_strip_energy_4_daily_meter:
+  source: sensor.basement_desk_smart_strip_energy_4
+  cycle: daily
+basement_desk_smart_strip_energy_5_daily_meter:
+  source: sensor.basement_desk_smart_strip_energy_5
+  cycle: daily
+
+basement_desk_smart_strip_energy_1_monthly_meter:
+  source: sensor.basement_desk_smart_strip_energy_1
+  cycle: monthly
+basement_desk_smart_strip_energy_2_monthly_meter:
+  source: sensor.basement_desk_smart_strip_energy_2
+  cycle: monthly
+basement_desk_smart_strip_energy_3_monthly_meter:
+  source: sensor.basement_desk_smart_strip_energy_3
+  cycle: monthly
+basement_desk_smart_strip_energy_4_monthly_meter:
+  source: sensor.basement_desk_smart_strip_energy_4
+  cycle: monthly
+basement_desk_smart_strip_energy_5_monthly_meter:
+  source: sensor.basement_desk_smart_strip_energy_5
+  cycle: monthly
+
+basement_desk_smart_switch_energy_daily_meter:
+  source: sensor.basement_desk_smart_switch_energy
+  cycle: daily
+basement_desk_smart_switch_energy_monthly_meter:
+  source: sensor.basement_desk_smart_switch_energy
+  cycle: monthly
+
+basement_plants_switch_energy_daily_meter:
+  source: sensor.basement_plants_switch_energy
+  cycle: daily
+basement_plants_switch_energy_monthly_meter:
+  source: sensor.basement_plants_switch_energy
+  cycle: monthly

@@ -123,4 +123,9 @@ weather:
 google:
   client_id: !secret ga_client_id
   client_secret: !secret ga_client_secret
+
+utility_meter: !include utility_meter.yaml
+
+remote: !include remote.yaml
+
 octoprint: !include octoprint.yaml
