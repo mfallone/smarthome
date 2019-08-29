@@ -1,0 +1,12 @@
+- name: !secret user_1_name
+  id: !secret user_1_id
+  user_id: !secret user_1_hass_id
+  device_trackers:
+    - !secret device_1
+
+- name: !secret user_2_name
+  id: !secret user_2_id
+  device_trackers:
+    - !secret device_2
+
+

@@ -60,6 +60,8 @@ map:
 # Track the sun
 sun:
 
+person: !include person.yaml
+
 fastdotcom:
   scan_interval:
     minutes: 30
